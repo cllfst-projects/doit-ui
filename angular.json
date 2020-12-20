@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Doit"
+    }
+  },
+  "defaultProject": "Doit",
+  "cli": {
+    "analytics": "59c2f710-bbbf-4e52-af44-2ebd6ee3837f"
+  }
 }
