@@ -11,5 +11,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  showNavItems () {
+    var x = document.getElementById("nav-items-id");
+    if (x.className === "nav-items") {
+        x.className += " responsive";
+    } else {
+        x.className = "nav-items";
+    }
+}
 }

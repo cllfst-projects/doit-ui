@@ -1,13 +1,15 @@
 
-<nav>
-        <ul routerLinkActive="active">
-            <li class="nav-item"> 
-                <a routerLink="home"><img src="" alt="DoitLogo"></a>
-            </li>
 
-            <li class="nav-item"><a routerLink="home">Home</a></li>
-            <li class="nav-item"><a routerLink="about">About</a></li>
-            <li class="signing-nav-item"><a routerLink="signin">Sign In</a></li>
-            <li class="signing-nav-item"><a routerLink="signup">Sign Up</a></li>
-        </ul>
-</nav>
+<div id="nav-logo"> 
+    <a routerLink="home"><img src="" alt="DoitLogo"></a>
+</div>
+<div class="nav-items" id="nav-items-id">
+    <a routerLink="home">Home</a>
+    <a routerLink="about">About</a>
+    <a routerLink="signup">Join Us</a>
+    <a routerLink="signin">Login</a>
+
+    <a  style="font-size:18px;"
+        class="icon" 
+        (click)="showNavItems()">  &#9776; </a>
+</div>
