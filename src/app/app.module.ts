@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
+    FooterComponent,
     HeaderComponent,
     HomeComponent
 
