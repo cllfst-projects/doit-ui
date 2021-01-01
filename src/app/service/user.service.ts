@@ -1,38 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { error } from 'protractor';
+import { AuthData } from "../models/auth-data.model";
+import { LoginData } from "../models/auth-dataLogin.model";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private link =" ";
+  private link ="";
 
   constructor(private http: HttpClient) { }
   
   login(email: string , password: string) {
-    var postData= { email: email , password : password}
-    var post = this.http 
+    const loginData: LoginData = { email: email, password: password };    
+    this.http 
     //link is replacement of backend link
-      .post<any>(this.link, postData);
-      post.subscribe(Response=> {
-        console.log(email);
-      }, error => {
-        console.log("there is an error");
-      }
-      )
+      .post(this.link, loginData)
+        .subscribe(response => {
+            console.log(response);
+      });
   }
 
   signup(name: string, lastname: string, email: string, password: string){
-    var postData= {name: name, lastname:lastname, email: email, password:password}
-    var post = this.http
+    const authData: AuthData = {name: name, lastName: lastname ,email: email, password: password}
+    this.http 
     //link is replacement of backend link
-      .post<any>(this.link, postData);
-      post.subscribe(Response => {
-
-      }), error => {
-        console.log("user already exists");
-      }
+      .post(this.link, authData)
+        .subscribe(response => {
+            console.log(response);
+      });
   }
 
 }
