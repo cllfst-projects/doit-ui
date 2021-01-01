@@ -1,6 +1,11 @@
 .text-dark{
-color: #ffff;
-font-size: 20px;
-margin-left: 45%;
+    color: #e5dcdc;
+    font-size: 1.6em;
+    margin-left: 45%;
+    text-decoration: none;
 
-};
+}
+.footer{
+    background-color: #3c3c3b ; 
+    padding: 0.5em; 
+}
