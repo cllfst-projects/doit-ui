@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 
 
 import { FooterComponent } from './components/shared/footer/footer.component';
@@ -11,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthInterceptor } from "./components/auth/service/auth-interceptor";
+import { CardsComponent } from './components/cards/cards.component';
 
 
 
@@ -21,13 +24,16 @@ import { AuthInterceptor } from "./components/auth/service/auth-interceptor";
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CardsComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
