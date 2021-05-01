@@ -1,0 +1,15 @@
+<div class="login">
+  <div class="login-header">
+    <h1>Welcome back</h1>
+  </div>
+  <div class="login-form">
+    <h4>Email <span>*</span>: </h4>
+    <input type="text" #email placeholder="aaa@aaa.aaa"/><br>
+    <h4>Password <span>*</span>:</h4>
+    <input type="password" #pwd placeholder="Password" required/>
+    <br>
+    <input type="button" (click)="onlogin(email.value,pwd.value)" value="Login" class="login-button" required/>
+    <br>
+    <h6 class="no-access">Forgot password ?</h6>
+  </div>
+</div>

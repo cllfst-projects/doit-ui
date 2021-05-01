@@ -1,0 +1,10 @@
+.text-dark{
+    color: rgb(255, 255, 255);
+    font-size: 1.6em;
+    position: center;
+
+}
+.footer{
+    background-color: #6d6d64 ; 
+    padding: 0.5em; 
+}
