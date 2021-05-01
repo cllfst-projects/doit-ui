@@ -8,6 +8,7 @@ import {ProjectServiceService} from '../../services/projectService/project-servi
 })
 export class ProfileSideNavBarComponent implements OnInit {
   projects=[]
+  
   constructor(private projectService: ProjectServiceService) { }
 
   ngOnInit(): void {
@@ -21,8 +22,13 @@ export class ProfileSideNavBarComponent implements OnInit {
   }
 
   //opening and closing side panel
-  openNav() {
-    document.getElementById("mySidepanel").style.width = "250px";
+  toggleNav() {
+    const panelWidth = document.getElementById("mySidepanel").style.width ;
+    if( panelWidth == "250px"){
+      document.getElementById("mySidepanel").style.width = "0px";
+    }else {
+      document.getElementById("mySidepanel").style.width = "250px";
+    }
   }
   closeNav() {
     document.getElementById("mySidepanel").style.width = "0";

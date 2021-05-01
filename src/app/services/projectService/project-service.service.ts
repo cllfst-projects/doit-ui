@@ -10,4 +10,5 @@ export class ProjectServiceService {
     const projects = PROJECTS;
     return projects
   }
+  
 }

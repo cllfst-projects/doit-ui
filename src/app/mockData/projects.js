@@ -1,7 +1,7 @@
 exports.PROJECTS = [
-        {name: "p1", id: 1},
-        {name: "p2", id: 2},
-        {name: "p3", id: 3},
-        {name: "p4", id: 4},
-        {name: "p5", id: 5}
+        {name: "project 1", id: 1},
+        {name: "project 2", id: 2},
+        {name: "project 3", id: 3},
+        {name: "project 4", id: 4},
+        {name: "project 5", id: 5}
 ]
