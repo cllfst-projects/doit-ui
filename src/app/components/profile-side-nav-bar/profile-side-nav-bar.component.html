@@ -1,0 +1,39 @@
+
+<button class="openbtn" (click)="toggleNav()">☰ My Projects</button> 
+<div id="mySidepanel" class="sidepanel">
+    <a class="closebtn" (click)="closeNav()">×</a>
+    <ul>
+        <li *ngFor="let project of projects" style="list-style-type: none;">
+            <a class="projects">{{project.name}}</a>
+        </li>
+    </ul>
+
+
+
+     <!-- Trigger/Open The Modal -->
+    <button class="addProjectBtn" (click)="openModal()">Add New Project</button>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="closeModal" (click)="closeModal()">&times;</span>
+            <form onsubmit="return false"><!-- so it wont refresh the page when the button is clicked-->
+                <p>
+                    <span>Project Name</span><br/>
+                    <input type="text" #myNewProject/>
+                </p>
+
+                <p>
+                    <button type="submit" (click)="closeModal(); addProject(myNewProject.value)">Add this project</button>   
+                </p>
+            </form>
+        </div>
+
+    </div> 
+
+</div>
+  
+

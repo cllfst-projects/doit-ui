@@ -14,6 +14,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthInterceptor } from "./components/auth/service/auth-interceptor";
 import { CardsComponent } from './components/cards/cards.component';
+import { ProfileSideNavBarComponent } from './components/profile-side-nav-bar/profile-side-nav-bar.component';
+
 
 
 
@@ -23,10 +25,12 @@ import { CardsComponent } from './components/cards/cards.component';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
+
     LoginComponent,
     SignupComponent,
     CardsComponent,
-    
+    ProfileSideNavBarComponent
+
 
   ],
   imports: [
