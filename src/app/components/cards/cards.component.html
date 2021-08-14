@@ -1,44 +1,52 @@
 <div class="root">
-  <div class="navbar has-background-dark">
-    <div class="navbar-brand">
-      
-    </div>
-  </div>
+    <div class="navbar has-background-dark">
+        <div class="navbar-brand">
 
-  <div class="board">
-
-    <div class="board-bar">
-      <p class="board-name">{{ board.name }}</p>
-    </div>
-    
-    <div class="board-wrapper">
-      
-      <div class="board-columns" cdkDropListGroup>
-        <div>
-          <app-profile-side-nav-bar></app-profile-side-nav-bar>
         </div>
-        
+    </div>
 
-        <div class="board-column" *ngFor="let column of board.columns">
+    <div class="board">
 
-          <div class="column-title">
-            {{ column.name }}
-          </div>
+        <div class="board-bar">
+            <p class="board-name">project</p>
+        </div>
 
-          <div class="tasks-container"
-          cdkDropList
-          [cdkDropListData]="column.tasks"
-          (cdkDropListDropped)="drop($event)">
-            <div class="task" *ngFor="let item of column.tasks" cdkDrag>
-              {{ item }}
+        <div class="board-wrapper">
+
+            <div class="board-columns" cdkDropListGroup>
+                <div>
+                    <app-profile-side-nav-bar></app-profile-side-nav-bar>
+                </div>
+
+
+                <div class="board-column" *ngFor="let card of items">
+
+                    <div class="column-title">
+                        {{ card.cardName }}
+                    </div>
+                    <div *ngIf="isTodoCard(card.cardName)">
+                        <input type="text" placeholder="Add an Item in To Do" #myNewTodoItemInput>
+                        <button (click)="addItem(card.cardName, myNewItemInput)">add</button>
+                    </div>
+                    <div *ngIf="isDoingCard(card.cardName)">
+                        <input type="text" placeholder="Add an Item in Doing" #myNewDoingItemInput>
+                        <button (click)="addItem(card.cardName, myNewDoingItemInput)">add</button>
+                    </div>
+                    <div *ngIf="isDoneCard(card.cardName)">
+                        <input type="text" placeholder="Add an Item in Done" #myNewDoneItemInput>
+                        <button (click)="addItem(card.cardName, myNewDoneItemInput)">add</button>
+                    </div>
+                    <div class="tasks-container" cdkDropList [cdkDropListData]="card.cardItems" (cdkDropListDropped)="drop($event)">
+                        <div class="task" *ngFor="let item of card.cardItems" cdkDrag>
+                            {{ item }}
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
+
         </div>
 
-      </div>
-
     </div>
-
-  </div>
 
 </div>
