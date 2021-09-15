@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import { Board } from '../../modules/board.module';
-import { Column } from '../../modules/column.model';
+import { ItemService } from 'src/app/services/itemService/item.service';
 
 @Component({
   selector: 'app-cards',
@@ -9,41 +8,38 @@ import { Column } from '../../modules/column.model';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
+  items = []
+  constructor(private itemService: ItemService) { }
 
-  constructor() { }
-  board: Board = new Board('Project Name', [
-    new Column('ToDo', [
-      "Projeyt JAVA ALGO",
-      "PFA",
-      "PAUD",
-      "OC",
-      "CyberSecurity",
-      "Stochastique",
-      "IF4 subjects"
-
-    ]),
-    new Column('Doing', [
-      "DOIT Project",
-      "Soc",
-      "Adminis. Réseau",
-      "EVE ng"
-    ]),
-    new Column('Done', [
-      'Get to work',
-      'Pick up groceries',
-      'Go home',
-      'Fall asleep'
-    ]),
-    
-  ]);
 
   ngOnInit(): void {
+    this.items = this.itemService.getItems();
+    console.log(this.items)
   }
-
-
+  isTodoCard(cardName: string){
+    return cardName == 'To Do'
+    
+  }
+  isDoingCard(cardName: string){
+    return cardName == 'Doing'
+  }
+  isDoneCard(cardName: string){
+    return cardName == 'Done'
+  }
+  addItem(cardName: string, input: any){
+    let itemName = input.value;
+    input.value = ""
+    
+    this.items.forEach( (card) => {
+      if(card.cardName === cardName) {
+        card.cardItems.push(itemName)
+      }
+    })
+  }
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      
     } else {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
