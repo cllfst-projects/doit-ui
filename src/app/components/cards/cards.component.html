@@ -26,7 +26,7 @@
                     </div>
                     <div *ngIf="isTodoCard(card.cardName)">
                         <input type="text" placeholder="Add an Item in To Do" #myNewTodoItemInput>
-                        <button (click)="addItem(card.cardName, myNewItemInput)">add</button>
+                        <button (click)="addItem(card.cardName, myNewTodoItemInput)">add</button>
                     </div>
                     <div *ngIf="isDoingCard(card.cardName)">
                         <input type="text" placeholder="Add an Item in Doing" #myNewDoingItemInput>
